@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import { Tabbar, TabbarItem,Search, Grid, GridItem,List,Icon,Tag } from 'vant';
+import { Tabbar, TabbarItem,Search, Grid, GridItem,List,Icon,Tag, Swipe, SwipeItem,Popup  } from 'vant';
 import 'vant/lib/index.css'
 import 'amfe-flexible'
 import router from '@/router'
@@ -17,4 +17,7 @@ app.use(GridItem);
 app.use(List);
 app.use(Icon);
 app.use(Tag);
+app.use(Swipe);
+app.use(SwipeItem);
+app.use(Popup);
 app.mount('#app')

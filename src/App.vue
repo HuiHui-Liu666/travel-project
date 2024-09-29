@@ -1,11 +1,11 @@
 <script setup>
-import tabBar from '@/components/tabBar/index.vue'
+import Login from '@/pages/login/index.vue'
 </script>
 
 <template>
   <div class="container">
    <router-view></router-view>
-    <tabBar/>
+   <Login/>
   </div>
 </template>
 

@@ -129,7 +129,7 @@
         }
       &-dingwei{
         position: absolute;
-        bottom: 5px;
+        bottom: 3px;
         width: 100%;
 
         div{

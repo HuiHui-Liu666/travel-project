@@ -5,6 +5,8 @@ const routes = [
   {path:'/publish',name:'publish',component:()=>import('@/pages/publish/index.vue')},
   {path:'/mine',name:'mine',component:()=>import('@/pages/mine/index.vue')},
   {path:'/search',name:'search',component:()=>import('@/pages/search/index.vue')},
+  {path:'/details',name:'details',component:()=>import('@/pages/details/index.vue')},
+  {path:'/login',name:'login',component:()=>import('@/pages/login/index.vue')},
 ]
 
 const router = createRouter({
