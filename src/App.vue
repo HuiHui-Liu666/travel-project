@@ -9,5 +9,9 @@ import tabBar from '@/components/tabBar/index.vue'
   </div>
 </template>
 
-<style scoped></style>
+<style>
+#app{
+  height: 200vh;
+}
+</style>
  
