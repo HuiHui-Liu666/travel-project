@@ -3,15 +3,18 @@ import tabBar from '@/components/tabBar/index.vue'
 </script>
 
 <template>
-  <div>
+  <div class="container">
    <router-view></router-view>
-  <tabBar/>
+    <tabBar/>
   </div>
 </template>
 
 <style>
 #app{
   height: 200vh;
+}
+.container{
+  padding-bottom: 50px;
 }
 </style>
  

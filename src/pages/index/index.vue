@@ -26,27 +26,54 @@
     </div>
    </div>
 
+   <!-- 瀑布流 -->
+   <van-list
+    class="card-flow-list"
+    v-model:loading="loading"
+    :finished="finished"
+    finished-text="没有更多了"
+    :immediate-check="false"
+    @load="onLoad"
+    >
+    <card :userTravels="userTravels"/>
+  </van-list>
 
 
 </template>
 <script lang="js" setup>
+import card from '@/components/cardFlow/index.vue'
 import { ref, onMounted } from 'vue'
 import http from '@/api'
 const value = ref('')
 const gridArr = ref([])
 const recommendArr = ref([])
 const activeIndex = ref(0)
-
+const userTravels = ref([])
 
 onMounted(async ()=>{
   const {category_nav, recomm_travel} = await http.get('recomm_travel').catch(err=>{console.log(err);})
-
   gridArr.value = category_nav
   recommendArr.value = recomm_travel
-  console.log('index.vue',recommendArr.value);
+
+  let user_travels = await http.get('/user_travels', { page: page.value}).catch(err=>{console.log(err);})
+  userTravels.value = user_travels
 
 })
 const clickRecommend = (index)=>{activeIndex.value = index}
+
+
+const loading = ref(false);
+const finished = ref(false);
+const page = ref(1);
+
+const onLoad = async ()=>{
+  loading.value = true
+  page.value++
+  let res = await http.get('/user_travels', { page: page.value}).catch(err=>{console.log(err);})
+  loading.value = false
+  if(res.length){finished.value = true}
+  userTravels.value = [...userTravels.value,...res]
+}
 </script>
 
 <style lang="scss" scoped>
@@ -141,5 +168,8 @@ body{
   //   }
   // }
 
+}
+.card-flow-list{
+  margin: 10px;
 }
 </style>
