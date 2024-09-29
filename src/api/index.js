@@ -14,4 +14,11 @@ http.interceptors.response.use(res=>{
   return res.data.data
 })
 
-export default http
+export default {
+  get(url,params){
+    return http.get(url,{params})
+  },
+  past(url,data){
+    return http.post(url,data)
+  }
+}
