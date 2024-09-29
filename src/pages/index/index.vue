@@ -1,6 +1,6 @@
 <template>
   <!-- 搜索 -->
-  <van-search v-model="value" placeholder="搜索地点/景点/游记" />
+  <van-search v-model="value" placeholder="搜索地点/景点/游记" @focus="$router.push('/search')" />
   <!-- 宫格 -->
   <van-grid column-num="5">
     <van-grid-item  v-for="item in gridArr" :key="item.id" :icon="item.icon" :text="item.text" />

@@ -17,6 +17,13 @@
   let rightHeight = ref(0)
 
   watch(props,(newValue,oldValue)=>{
+    // 初始化操作：
+    leftItems.value = []
+    rightItems.value = []
+    leftHeight.value = 0
+    rightHeight.value = 0
+
+    
     let {userTravels} = newValue
     if(userTravels.length > 0){
       // 循环数据
